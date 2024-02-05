@@ -1,42 +1,101 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: Helvetica, Sans-Serif;
+  background-color: black;
+  color: #fff;
+  overflow: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Header {
+  display: flex;
+  justify-content: start;
+  width: 50%;
+  padding: 30px;
+  padding-left: 10px;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 40px;
 }
 
 .card {
-  padding: 2em;
+  flex: 0 0 0.33%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.read-the-docs {
-  color: #888;
+.image {
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.articles-name {
+  font-weight: bold;
+}
+
+.footer {
+  border-top: 1px solid white;
+  font-size: small;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  transform: translateY(auto);
+}
+
+.footer-subcontainer {
+  display: flex;
+}
+
+.links,
+.newsletter,
+.contact {
+  flex: 1;
+  padding: 10px;
+}
+
+.sub-links {
+  margin-top: 10px;
+}
+
+.form-input {
+  padding: 10px;
+}
+
+.address {
+  padding: 10px;
+}
+
+button {
+  width: 100px;
+  color: #fff;
+  margin-left: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: medium;
+  font-weight: bold;
+  outline: none;
+  background-color: #15202b;
+  border: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-subcontainer {
+    flex-direction: column;
+  }
 }
