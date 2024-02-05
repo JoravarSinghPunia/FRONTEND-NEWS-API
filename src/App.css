@@ -11,6 +11,10 @@ body {
   overflow: auto;
 }
 
+h2 {
+  padding: 10px;
+}
+
 .Header {
   display: flex;
   justify-content: start;
