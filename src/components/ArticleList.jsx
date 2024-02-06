@@ -25,43 +25,26 @@ export default function ArticleList() {
         <section className="article-container">
           {articles.map((article, index) => (
             <ul className="card" key={index}>
-              <li className="article-name">
-                <span className="articles-name">Title: </span> {article.title}
-              </li>
               <li className="id">
                 <span className="articles-name">ID:</span> {article.article_id}
               </li>
+              <li className="article-name">
+                <span className="articles-name">Title: </span> {article.title}
+              </li>
+
               <li className="topic">
                 <span className="articles-name">Topic:</span> {article.topic}
               </li>
               <li className="author">
-                <span className="articles-name">Price:</span> {article.author}p
+                <span className="articles-name">Author:</span> {article.author}
               </li>
-              {/* 
-              article_id
-: 
-34
-article_img_url
-: 
-"https://images.pexels.com/photos/2403392/pexels-photo-2403392.jpeg?w=700&h=700"
-author
-: 
-"grumpy19"
-comment_count
-: 
-11
-created_at
-: 
-"2020-11-22T11:13:00.000Z"
-title
-: 
-"The Notorious MSG’s Unlikely Formula For Success"
-topic
-: 
-"cooking"
-votes
-: 
-0 */}
+              <li className="comment_count">
+                <span className="articles-name">Comment count:</span>{" "}
+                {article.comment_count}
+              </li>
+              <li className="votes">
+                <span className="articles-name">Votes:</span> {article.votes}
+              </li>
               <div>
                 <img
                   className="image"
