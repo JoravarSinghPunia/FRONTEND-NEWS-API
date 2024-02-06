@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: 3px;
   padding: 0;
   box-sizing: border-box;
 }
@@ -9,6 +9,15 @@ body {
   background-color: #15202b;
   color: #fff;
   overflow: auto;
+}
+
+.byte-board {
+  color: white;
+  text-decoration: none;
+}
+
+.byte-board:hover {
+  text-decoration: none;
 }
 
 h2 {
@@ -22,6 +31,38 @@ h2 {
   padding: 30px;
   padding-left: 10px;
   color: #fff;
+  text-decoration: none;
+}
+
+.Header-nav {
+  display: flex;
+  border-bottom: 1px solid white;
+  text-decoration: none;
+}
+
+#articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Nav {
+  display: flex;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  margin-left: auto;
+}
+
+.Nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.Home,
+.Topics,
+.Log-in {
+  padding: 10px;
 }
 
 li {
@@ -29,27 +70,65 @@ li {
   list-style: none;
 }
 
-.article-container {
-  display: flex;
-  flex-wrap: wrap;
+.fullArticle {
+  padding: 50px;
   justify-content: center;
-  padding-top: 40px;
+  align-items: center;
+}
+
+.full-article-author {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.article-container {
+  text-align: center;
+  width: calc(30% - 20px);
+  margin-bottom: 20px;
 }
 
 .card {
-  flex: 0 0 0.33%;
-  padding-left: 5px;
-  padding-right: 5px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  background-color: #253341;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 0 0 calc(50% - 20px);
+}
+
+.card img {
+  max-width: 750%;
+  height: auto;
+}
+
+.card ul {
+  padding: 10px;
 }
 
 .image {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   margin-top: 10px;
   margin-bottom: 40px;
 }
 
-.articles-name {
+.article-name {
   font-weight: bold;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.author,
+.topic,
+.votes,
+.comment_count {
+  color: #ccc;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .footer {
@@ -59,6 +138,7 @@ li {
   text-align: center;
   padding: 10px;
   transform: translateY(auto);
+  margin-top: 20px;
 }
 
 .footer-subcontainer {
@@ -84,16 +164,17 @@ li {
   padding: 10px;
 }
 
+.subscribe {
+  margin-top: 10px;
+}
+
 button {
-  width: 100px;
-  color: #fff;
+  color: black;
   margin-left: 5px;
   padding: 10px;
   border-radius: 20px;
-  font-size: medium;
   font-weight: bold;
-  outline: none;
-  background-color: #15202b;
+  background-color: white;
   border: 0;
   cursor: pointer;
 }
@@ -101,5 +182,25 @@ button {
 @media screen and (max-width: 768px) {
   .footer-subcontainer {
     flex-direction: column;
+  }
+
+  .Header {
+    width: 100%;
+  }
+
+  .Nav {
+    margin-left: auto;
+  }
+
+  .article-container {
+    width: 100%;
+  }
+
+  .card {
+    flex: 0 0 calc(50% - 20px);
+  }
+
+  .image {
+    margin-bottom: 20px;
   }
 }
