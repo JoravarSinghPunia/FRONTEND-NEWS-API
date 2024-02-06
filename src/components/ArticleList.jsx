@@ -37,6 +37,31 @@ export default function ArticleList() {
               <li className="author">
                 <span className="articles-name">Price:</span> {article.author}p
               </li>
+              {/* 
+              article_id
+: 
+34
+article_img_url
+: 
+"https://images.pexels.com/photos/2403392/pexels-photo-2403392.jpeg?w=700&h=700"
+author
+: 
+"grumpy19"
+comment_count
+: 
+11
+created_at
+: 
+"2020-11-22T11:13:00.000Z"
+title
+: 
+"The Notorious MSG’s Unlikely Formula For Success"
+topic
+: 
+"cooking"
+votes
+: 
+0 */}
               <div>
                 <img
                   className="image"
