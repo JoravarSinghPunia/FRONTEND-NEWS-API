@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <>
-      <div>
-        <h1 className="byte-board">The Byte Board</h1>
-      </div>
+      <Link to="/" className="byte-board">
+        <div>
+          <h1>The Byte Board</h1>
+        </div>
+      </Link>
     </>
   );
 }
