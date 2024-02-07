@@ -11,18 +11,18 @@ function ArticleCard(props) {
           <li className="article-name">
             <span className="articles-name"></span> {article.title}
           </li>
-          <li className="topic">
+          <li className="sub-heading">
             <span className="articles-name"></span>
             {article.topic.toUpperCase()}
           </li>
-          <li className="author">
-            <span className="articles-name">Written by:</span> {article.author}
+          <li className="sub-heading">
+            <span className="articles-name">Author:</span> {article.author}
           </li>
-          <li className="votes">
-            <span className="articles-name">Votes:</span> {article.votes}
+          <li className="sub-heading">
+            <span className="articles-name">❤️</span> {article.votes}
           </li>
-          <li className="comment_count">
-            <span className="articles-name">Comments:</span>
+          <li className="sub-heading">
+            <span className="articles-name">💬</span>
             {article.comment_count}
           </li>
           <div>

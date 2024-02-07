@@ -6,8 +6,14 @@ export default function Navbar() {
       <Link className="Home" to="/">
         Home
       </Link>
-      <Link className="Topics" to="/topics">
-        Topics
+      <Link className="Cooking" to="/cooking">
+        Cooking
+      </Link>
+      <Link className="Coding" to="/coding">
+        Coding
+      </Link>
+      <Link className="Football" to="/football">
+        Football
       </Link>
       <Link className="Log-in" to="/login">
         Log In
