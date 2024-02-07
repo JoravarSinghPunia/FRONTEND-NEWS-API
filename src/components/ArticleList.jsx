@@ -20,7 +20,7 @@ export default function Articles(props) {
   return (
     <>
       {isLoading ? (
-        <h1>Content is loading...</h1>
+        <h1 className="loading">Content is loading...</h1>
       ) : (
         <>
           <h2 className="all-articles">All Articles</h2>
