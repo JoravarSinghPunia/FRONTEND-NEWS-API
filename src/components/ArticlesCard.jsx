@@ -36,9 +36,7 @@ function ArticleCard(props) {
 
         <div className="cardActions">
           <button>
-            <Link to={`/${article.article_id}`} target="_blank">
-              Read article
-            </Link>
+            <Link to={`/${article.article_id}`}>Read article</Link>
           </button>
         </div>
       </div>
