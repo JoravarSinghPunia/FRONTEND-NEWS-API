@@ -31,3 +31,17 @@ export const getCommentsByID = (articleId) => {
       console.log(err);
     });
 };
+
+export const patchArticlesByID = (articleId, votes) => {
+  return axios
+    .patch(
+      `https://backend-news-api-rzxs.onrender.com/api/articles/${articleId}`,
+      { inc_votes: votes }
+    )
+    .then((response) => {
+      return response.data.article;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
