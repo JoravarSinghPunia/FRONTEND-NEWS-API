@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchTopics } from "../../utils/api";
 import TopicCard from "./TopicCard";
 
-export default function TopicArticles(props) {
+export const TopicArticles = (props) => {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,4 +33,4 @@ export default function TopicArticles(props) {
       </section>
     </>
   );
-}
+};
