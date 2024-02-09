@@ -1,4 +1,4 @@
-// import Topic from "../components/TopicArticles";
+// import TopicArticles from "../components/TopicArticles";
 import Articles from "../components/ArticleList";
 import { useState } from "react";
 
