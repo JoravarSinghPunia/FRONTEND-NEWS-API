@@ -1,4 +1,4 @@
-import Topics from "../components/TopicArticles";
+// import Topic from "../components/TopicArticles";
 import Articles from "../components/ArticleList";
 import { useState } from "react";
 
@@ -9,10 +9,10 @@ export default function Home(props) {
 
   return (
     <>
-      <Topics
+      {/* <TopicArticles
         setArticles={setArticles}
         setIsLoadingArticles={setIsLoadingArticles}
-      />
+      /> */}
 
       <Articles
         setCurrentArticle={setCurrentArticle}

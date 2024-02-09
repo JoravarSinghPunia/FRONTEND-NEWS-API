@@ -8,7 +8,7 @@ import Home from "./pages/home";
 import View_Article from "./pages/view_article";
 import { getUserByUsername } from "../utils/api";
 import { CurrentUserContext } from "./Contexts/CurrentUser";
-import TopicArticles from "./components/TopicArticles";
+// import TopicArticles from "./components/TopicArticles";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -39,7 +39,7 @@ function App() {
           path="/articles/:topic_name"
           element={<Home setCurrentArticle={setCurrentArticle} />}
         />
-        <Route path="/topics/:topic" element={<TopicArticles />} />
+        {/* <Route path="/topics/:topic" element={<TopicArticles />} /> */}
         <Route
           path="/"
           element={<ArticleList setCurrentArticle={setCurrentArticle} />}
