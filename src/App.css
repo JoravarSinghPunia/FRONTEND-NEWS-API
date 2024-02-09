@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 body {
   font-family: Helvetica, Sans-Serif;
   background-color: #15202b;
@@ -147,6 +152,19 @@ li {
 }
 
 .card {
+  margin: 10px;
+  border: 1px solid #ddd;
+  background-color: #253341;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 0 0 calc(50% - 20px);
+}
+
+.read-article {
+  color: #000;
+}
+
+.topic-card {
   margin: 10px;
   border: 1px solid #ddd;
   background-color: #253341;

@@ -6,21 +6,19 @@ import ArticleList from "./components/ArticleList";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import View_Article from "./pages/view_article";
-import { getUserByUsername } from "../utils/api";
-import { CurrentUserContext } from "./Contexts/CurrentUser";
-import TopicArticles from "./components/TopicArticles";
+
+import { TopicArticles } from "./components/TopicArticles";
 import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  const [currentArticle, setCurrentArticle] = useState({});
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    const selectedUser = "grumpy19";
-    getUserByUsername(selectedUser).then((userData) => {
-      setCurrentUser(userData);
-    });
+    const storedUser = localStorage.getItem("currentUser");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
   }, []);
 
   return (
@@ -35,17 +33,12 @@ function App() {
       </div>
 
       <Routes>
-        <Route
-          path="/articles/:topic_name"
-          element={<Home setCurrentArticle={setCurrentArticle} />}
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/topics/:topic" element={<TopicArticles />} />
-        <Route
-          path="/"
-          element={<ArticleList setCurrentArticle={setCurrentArticle} />}
-        />
+
         <Route path="/:article_id" element={<View_Article />} />
       </Routes>
+
       <Footer />
     </div>
   );

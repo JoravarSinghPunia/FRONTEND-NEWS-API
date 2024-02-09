@@ -54,12 +54,11 @@ export const postCommentOnArticleById = (articleId, user, comment) => {
     username: user,
     body: comment,
   };
+  console.log(requestBody);
   return api
-    .post(
-      `https://backend-news-api-rzxs.onrender.com/api/articles/${articleId}/comments`,
-      requestBody
-    )
+    .post(`/articles/${articleId}/comments`, requestBody)
     .then((response) => {
+      console.log(response);
       return response.data.comment;
     })
     .catch((err) => {
@@ -67,24 +66,23 @@ export const postCommentOnArticleById = (articleId, user, comment) => {
     });
 };
 
-export const getUserByUsername = (username) => {
-  return api
-    .get(`https://backend-news-api-rzxs.onrender.com/api/users/`)
+export const fetchUsers = () => {
+  return fetch(`https://backend-news-api-rzxs.onrender.com/api/users`)
     .then((response) => {
-      return response.data;
+      return response.json();
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .then((data) => data.user);
 };
 
-export const fetchTopics = () => {
+export const fetchTopics = (topic) => {
   return api
-    .get(`/topics`)
+    .get(`/articles?topic=${topic}`)
     .then((response) => {
-      return response.data.topics;
+      console.log(response.data);
+      return response.data.articles;
     })
-    .catch((err) => {
-      console.log(err);
+    .catch((error) => {
+      console.error("Error fetching topics:", error);
+      throw error;
     });
 };
