@@ -245,6 +245,10 @@ li {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
   color: black;
   margin-left: 5px;

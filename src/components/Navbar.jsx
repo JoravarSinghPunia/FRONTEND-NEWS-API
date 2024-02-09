@@ -24,17 +24,17 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/cooking" onClick={closeMenu}>
+          <Link to="/topics/cooking" onClick={closeMenu}>
             Cooking
           </Link>
         </li>
         <li>
-          <Link to="/coding" onClick={closeMenu}>
+          <Link to="/topics/coding" onClick={closeMenu}>
             Coding
           </Link>
         </li>
         <li>
-          <Link to="/football" onClick={closeMenu}>
+          <Link to="/topics/football" onClick={closeMenu}>
             Football
           </Link>
         </li>

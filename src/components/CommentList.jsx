@@ -1,14 +1,21 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
-
-import { getCommentsByID } from "../../utils/api";
+import { useEffect, useState, useContext } from "react";
+import { CurrentUserContext } from "../Contexts/CurrentUser";
+import { getCommentsByID, postCommentOnArticleById } from "../../utils/api";
 import CommentCard from "./CommentCard";
 
 export default function Comments(props) {
+  const { article_id } = props;
+
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentInput, setCurrentInput] = useState();
 
-  const { article_id } = props;
+  const [newComments, setNewComments] = useState([]);
+  const [postCommentError, setPostCommentError] = useState(null);
+  const [isPosting, setIsPosting] = useState(false);
+
+  const { currentUser } = useContext(CurrentUserContext);
 
   useEffect(() => {
     getCommentsByID(article_id)
@@ -20,6 +27,41 @@ export default function Comments(props) {
       });
   }, []);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    setIsPosting(true);
+    setPostCommentError(null);
+    const commentToSubmit = currentInput;
+
+    if (!commentToSubmit) {
+      setPostCommentError("Comment must be at least 1 character long");
+      setIsPosting(false);
+    } else {
+      const newCommentsObj = {
+        username: currentUser.username,
+        body: commentToSubmit,
+        created_at: new Date().toISOString(),
+      };
+      setNewComments((otherNewComments) => {
+        return [newCommentsObj, ...otherNewComments];
+      });
+      postCommentOnArticleById(
+        article_id,
+        currentUser.username,
+        commentToSubmit
+      )
+        .then((commentData) => {
+          setPostCommentError(null);
+          setCurrentInput("");
+          setIsPosting(false);
+        })
+        .catch((err) => {
+          setPostCommentError(err);
+          setIsPosting(false);
+        });
+    }
+  }
+
   if (isLoading) {
     return <h1>Loading Comments...</h1>;
   }
@@ -29,12 +71,39 @@ export default function Comments(props) {
   }
 
   return (
-    <>
+    <section id="postCommentContainer">
+      <form onSubmit={handleSubmit} className="commentForm">
+        <div>
+          <label htmlFor="commentInput">Enter a comment:</label>
+          <textarea
+            id="commentInput"
+            rows={4}
+            value={currentInput}
+            onChange={(event) => setCurrentInput(event.target.value)}
+          />
+        </div>
+        <button type="submit" disabled={isPosting}>
+          Post comment
+        </button>
+      </form>
+      {postCommentError && <p>{postCommentError}</p>}
+      {newComments.length !== 0
+        ? newComments.map((newComment, index) => (
+            <div className="comment" key={index}>
+              <p>{newComment.body}</p>
+              <div className="comment-user-date">
+                <span>{newComment.username} Guest&nbsp; | Posted now</span>
+                <br />
+                <span>❤️ 0</span>
+              </div>
+            </div>
+          ))
+        : null}
       <div className="allComments">
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
         })}
       </div>
-    </>
+    </section>
   );
 }
