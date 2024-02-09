@@ -9,7 +9,6 @@ export default function View_Article() {
   const [isDownVoted, setIsDownVoted] = useState(false);
   const [isVoted, setIsVoted] = useState(false);
   const [error, setError] = useState(null);
-  console.log(currentArticle);
 
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();

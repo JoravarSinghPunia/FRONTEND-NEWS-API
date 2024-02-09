@@ -35,7 +35,7 @@ function ArticleCard(props) {
         </ul>
 
         <div className="cardActions">
-          <button>
+          <button className="read-article">
             <Link to={`/${article.article_id}`}>Read article</Link>
           </button>
         </div>
