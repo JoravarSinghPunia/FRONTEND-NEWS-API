@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 
-export const CurrentUserContext = createContext();
+export const CurrentUser = createContext();
 
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
 
   return (
-    <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+    <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>
       {children}
-    </CurrentUserContext.Provider>
+    </CurrentUser.Provider>
   );
 };

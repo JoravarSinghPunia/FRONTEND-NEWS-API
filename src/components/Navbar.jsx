@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -38,11 +39,12 @@ export default function Navbar() {
             Football
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/login" onClick={closeMenu}>
-            Log In
+            AccountCircleIcon
           </Link>
-        </li>
+        </li> */}
+        <AccountCircleIcon className="icon"></AccountCircleIcon>
       </ul>
     </nav>
   );

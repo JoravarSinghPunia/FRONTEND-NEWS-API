@@ -35,7 +35,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/topics/:topic" element={<TopicArticles />} />
-
+        <Route
+          path="/articles/:article_id/comments"
+          element={<ArticleList />}
+        />
         <Route path="/:article_id" element={<View_Article />} />
       </Routes>
 
