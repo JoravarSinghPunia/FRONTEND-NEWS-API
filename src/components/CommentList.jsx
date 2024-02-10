@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState, useContext } from "react";
-import { CurrentUserContext } from "../Contexts/CurrentUser";
+import { CurrentUser } from "../Contexts/CurrentUser";
 import { getCommentsByID, postCommentOnArticleById } from "../../utils/api";
 import CommentCard from "./CommentCard";
 
@@ -15,7 +15,7 @@ export default function Comments(props) {
   const [postCommentError, setPostCommentError] = useState(null);
   const [isPosting, setIsPosting] = useState(false);
 
-  const { currentUser } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUser);
 
   useEffect(() => {
     getCommentsByID(article_id)
@@ -75,6 +75,8 @@ export default function Comments(props) {
       <form onSubmit={handleSubmit} className="commentForm">
         <div>
           <label htmlFor="commentInput">Enter a comment:</label>
+          <br />
+          <br />
           <textarea
             id="commentInput"
             rows={4}
@@ -82,6 +84,7 @@ export default function Comments(props) {
             onChange={(event) => setCurrentInput(event.target.value)}
           />
         </div>
+        <br />
         <button type="submit" disabled={isPosting}>
           Post comment
         </button>
@@ -91,6 +94,7 @@ export default function Comments(props) {
         ? newComments.map((newComment, index) => (
             <div className="comment" key={index}>
               <p>{newComment.body}</p>
+              <br />
               <div className="comment-user-date">
                 <span>{newComment.username} Guest&nbsp; | Posted now</span>
                 <br />

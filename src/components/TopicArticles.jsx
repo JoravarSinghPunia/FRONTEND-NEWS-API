@@ -10,19 +10,26 @@ export const TopicArticles = () => {
   const { topic } = useParams();
 
   useEffect(() => {
-    setLoading(true);
-    fetchTopics(topic).then((response) => {
-      console.log(response);
-      setArticles(response);
-      setLoading(false);
-    });
+    fetchTopics(topic)
+      .then((response) => {
+        setArticles(response);
+      })
+      .then(() => {
+        setLoading(false);
+      });
   }, [topic]);
 
   return (
-    <main id="articles">
-      {articles.map((article) => (
-        <TopicCard key={article.article_id} article={article} />
-      ))}
-    </main>
+    <>
+      {loading ? (
+        <h1 className="loading">Content is loading...</h1>
+      ) : (
+        <main id="articles">
+          {articles.map((article) => (
+            <TopicCard key={article.article_id} article={article} />
+          ))}
+        </main>
+      )}
+    </>
   );
 };
